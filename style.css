@@ -1,6 +1,6 @@
-/*	Theme Name: DP Genesis Child
+/*	Theme Name: WMAA Chapters Theme
  *	Theme URI: https://github.com/delputnam/DP-Genesis-Child
- *	Description: Base child theme for use with the Genesis Framework.
+ *	Description: Base child theme for use with the Genesis Framework based on DP-Genesis-Child
  *	Author: Del Putnam
  *	Author URI: http://delputnam.com/
  *
@@ -1762,7 +1762,7 @@ table th[class*="span"],
   *margin-right: .3em;
   line-height: 14px;
   vertical-align: text-top;
-  background-image: url(/wp-content/themes/DP-Genesis-Child/images/glyphicons-halflings.png?1367335649);
+  background-image: url(/wp-content/themes/chapters/images/glyphicons-halflings.png?1367346804);
   background-position: 14px 14px;
   background-repeat: no-repeat;
   margin-top: 1px; }
@@ -1785,7 +1785,7 @@ table th[class*="span"],
 .dropdown-submenu:focus > a > [class^="icon-"],
 .dropdown-submenu:hover > a > [class*=" icon-"],
 .dropdown-submenu:focus > a > [class*=" icon-"] {
-  background-image: url(/wp-content/themes/DP-Genesis-Child/images/glyphicons-halflings-white.png?1367335649); }
+  background-image: url(/wp-content/themes/chapters/images/glyphicons-halflings-white.png?1367346804); }
 
 .icon-glass {
   background-position: 0 0; }
