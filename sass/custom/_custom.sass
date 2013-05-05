@@ -1,0 +1,185 @@
+// TEMPORARY
+//-----------------------
+.demo-row
+	margin-top: 20px
+
+
+// ANIMATIONS
+//-----------------------
++keyframes(homeFadeInDown)
+	0%
+		+opacity(0)
+		+transform( translateY(-50px) )
+
+	100%
+		+opacity(1)
+		+transform( translateY(0px) )
+
++keyframes(homeFadeInZoom)
+	0%
+		+opacity(0)
+		+scale(0.7)
+
+	100%
+		+opacity(100)
+		+scale(1)
+
++keyframes(homeFadeOutZoom)
+	0%
+		+opacity(100)
+		+scale(1)
+
+	100%
+		+opacity(0)
+		+scale(0)
+
++keyframes(homeHoverSlideUp)
+	0%
+		+transform( translateY(0px) )
+
+	100%
+		+transform( translateY(-50px) )
+
+// Common Properties
+//-----------------------
+.preload *
+	+transition( none !important )
+
+body
+	background-color: transparent
+	background-image: image-url('alumni-background.jpg')
+
+	#header img.home-header-image
+		display: block
+		margin: 20px auto
+		
+#wrap
+	//z-index: 10
+	//height: auto
+	//min-height: 100%
+	
+	//&.chapters-hidden
+	//	+transition( all 5s ease-in )
+	//	height: 0
+	//	overflow: hidden
+
+
+// Nav Blocks
+//-----------------------
+.home-nav-blocks
+
+	margin-top: 60px
+
+	.home-nav-block
+		width: 70%
+		margin: 0 auto
+
+		.inner-wrap
+			padding: 25%
+			+border-radius(50%)
+
+		img.home-nav-icon
+			margin: 0 auto
+			display: block
+
+		h3.home-nav-title
+			margin: 15px 0 15px 0
+			font-weight: 700
+			text-align: center
+
+	.chapters-map
+		.inner-wrap
+			background: $retro-blue-light
+			border: 8px solid $retro-blue
+
+		h3.home-nav-title
+			color: $retro-blue
+
+	.chapters-events
+		.inner-wrap
+			background: $retro-orange-light
+			border: 8px solid $retro-orange
+
+		h3.home-nav-title
+			color: $retro-orange
+
+	.chapters-notes
+		.inner-wrap
+			background: $retro-green
+			border: 8px solid $retro-green-dark
+
+		h3.home-nav-title
+			color: $retro-green-dark
+
+
+// Nav Page
+//-----------------------
+body.chapters-page-nav
+
+	#header img.home-header-image
+		+animation(homeFadeInZoom 0.5s cubic-bezier(0.420, 0.000, 0.610, 1.455) )
+
+	.home-nav-blocks
+
+		.inner-wrap
+			+transition( all 0.2s ease-in )
+
+			&:hover
+				+simple-transform( 1.1, 0, 0, -15px )
+
+			cursor: pointer
+
+
+// Sub-Pages
+//-----------------------
+.chapters-sub-page
+	width: 100%
+	position: fixed
+	top: 100%
+	left: 0
+	z-index: 1000
+	+transition( all 0.3s ease-in )
+		
+	&.chapters-expanded
+		+transition( all 0.3s ease-in )
+		position: absolute
+		height: auto
+		top: 0
+	
+	
+//.chapters-sub-page
+//	height: 0
+//	width: 0
+//	position: absolute
+//	+opacity( 0 )
+//	+border-radius( 50% )
+//	overflow: hidden
+//	
+//	&.chapters-expanded
+//		+transition( all 0.5s ease-in )
+//		min-height: 100%
+//		height: auto
+//		width: 100%
+//		top: 0 !important
+//		left: 0 !important
+//		+opacity( 100 )
+//		+border-radius( 0 )
+//
+//.chapters-sub-page-close
+//	position: absolute
+//	top: 16px
+//	right: 16px
+//	cursor: pointer
+//	
+//	.icon-remove-sign
+//		color: $retro-taupe-light
+//		font-size: 24px
+//
+#chapters-sub-page-map
+	background: $retro-blue-light
+	
+#chapters-sub-page-events
+	background: $retro-orange-light
+	
+#chapters-sub-page-notes
+	background: $retro-green-light

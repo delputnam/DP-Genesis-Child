@@ -10,6 +10,7 @@
  * @license      http://opensource.org/licenses/gpl-2.0.php GNU Public License
  *
  */
+ 
 
 /**
  * Theme Setup
@@ -23,8 +24,12 @@
 
 add_action('genesis_setup','child_theme_setup', 15);
 function child_theme_setup() {
+	global $wp_scripts;
 
 	define( 'CHILD_THEME_VERSION', filemtime( get_stylesheet_directory() . '/style.css' ) );
+
+	// ** Includes **
+	include_once( CHILD_DIR . '/lib/functions/helpers.php' );
 
 	// ** Backend **
 
@@ -48,6 +53,11 @@ function child_theme_setup() {
 	genesis_unregister_layout( 'sidebar-content-sidebar' );
 	genesis_unregister_layout( 'sidebar-content' );
 	genesis_unregister_layout( 'content-sidebar' );
+
+	// Set Default Site Layout
+	add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_full_width_content' );
+	add_filter( 'genesis_pre_get_option_append_description_home', '__dp_return_false' );
+	add_filter( 'genesis_seo_description', '__dp_return_null' );
 
 	// Remove Unused User Settings
 	add_filter( 'user_contactmethods', 'dp_contactmethods' );
@@ -87,26 +97,44 @@ function child_theme_setup() {
 	//wp_register_style( 'dp-style', CHILD_URL . '/css/dp-style.css' );
 
 	// Register Scripts
-	wp_register_script( 'content-script', CHILD_URL . '/js/content-functions.js', array( 'jquery' ), false, true );
-	wp_register_script( 'bootstrap-affix', CHILD_URL . '/js/bootstrap-affix.js', array( 'jquery' ), false, true );
-	wp_register_script( 'bootstrap-alert', CHILD_URL . '/js/bootstrap-alert.js', array( 'jquery' ), false, true );
-	wp_register_script( 'bootstrap-button', CHILD_URL . '/js/bootstrap-button.js', array( 'jquery' ), false, true );
-	wp_register_script( 'bootstrap-carousel', CHILD_URL . '/js/bootstrap-carousel.js', array( 'jquery' ), false, true );
-	wp_register_script( 'bootstrap-collapse', CHILD_URL . '/js/bootstrap-collapse.js', array( 'jquery' ), false, true );
-	wp_register_script( 'bootstrap-dropdown', CHILD_URL . '/js/bootstrap-dropdown.js', array( 'jquery' ), false, true );
-	wp_register_script( 'bootstrap-modal', CHILD_URL . '/js/bootstrap-modal.js', array( 'jquery' ), false, true );
-	wp_register_script( 'bootstrap-popover', CHILD_URL . '/js/bootstrap-popover.js', array( 'jquery', 'bootstrap-tooltip' ), false, true );
-	wp_register_script( 'bootstrap-scrollspy', CHILD_URL . '/js/bootstrap-scrollspy.js', array( 'jquery' ), false, true );
-	wp_register_script( 'bootstrap-tab', CHILD_URL . '/js/bootstrap-tab.js', array( 'jquery' ), false, true );
-	wp_register_script( 'bootstrap-tooltip', CHILD_URL . '/js/bootstrap-tooltip.js', array( 'jquery' ), false, true );
-	wp_register_script( 'bootstrap-transition', CHILD_URL . '/js/bootstrap-transition.js', array( 'jquery' ), false, true );
-	wp_register_script( 'bootstrap-typeahead', CHILD_URL . '/js/bootstrap-typeahead.js', array( 'jquery' ), false, true );
+	wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js', false, false, true );
+
+	wp_register_script( 'content-script', CHILD_URL . '/js/bootstrap/content-functions.js', array( 'jquery' ), false, true );
+	wp_register_script( 'bootstrap-affix', CHILD_URL . '/js/bootstrap/bootstrap-affix.js', array( 'jquery' ), false, true );
+	wp_register_script( 'bootstrap-alert', CHILD_URL . '/js/bootstrap/bootstrap-alert.js', array( 'jquery' ), false, true );
+	wp_register_script( 'bootstrap-button', CHILD_URL . '/js/bootstrap/bootstrap-button.js', array( 'jquery' ), false, true );
+	wp_register_script( 'bootstrap-carousel', CHILD_URL . '/js/bootstrap/bootstrap-carousel.js', array( 'jquery' ), false, true );
+	wp_register_script( 'bootstrap-collapse', CHILD_URL . '/js/bootstrap/bootstrap-collapse.js', array( 'jquery' ), false, true );
+	wp_register_script( 'bootstrap-dropdown', CHILD_URL . '/js/bootstrap/bootstrap-dropdown.js', array( 'jquery' ), false, true );
+	wp_register_script( 'bootstrap-modal', CHILD_URL . '/js/bootstrap/bootstrap-modal.js', array( 'jquery' ), false, true );
+	wp_register_script( 'bootstrap-popover', CHILD_URL . '/js/bootstrap/bootstrap-popover.js', array( 'jquery', 'bootstrap-tooltip' ), false, true );
+	wp_register_script( 'bootstrap-scrollspy', CHILD_URL . '/js/bootstrap/bootstrap-scrollspy.js', array( 'jquery' ), false, true );
+	wp_register_script( 'bootstrap-tab', CHILD_URL . '/jsbootstrap//bootstrap-tab.js', array( 'jquery' ), false, true );
+	wp_register_script( 'bootstrap-tooltip', CHILD_URL . '/js/bootstrap/bootstrap-tooltip.js', array( 'jquery' ), false, true );
+	wp_register_script( 'bootstrap-transition', CHILD_URL . '/js/bootstrap/bootstrap-transition.js', array( 'jquery' ), false, true );
+	wp_register_script( 'bootstrap-typeahead', CHILD_URL . '/js/bootstrap/bootstrap-typeahead.js', array( 'jquery' ), false, true );
+
+	wp_register_script( 'flat-jquery-ui', CHILD_URL . '/js/flat-ui/jquery-ui-1.10.0.custom.min.js', array( 'jquery' ), false, true );
+	wp_register_script( 'flat-dropkick', CHILD_URL . '/js/flat-ui/jquery.dropkick-1.0.0.js', array( 'jquery' ), false, true );
+	wp_register_script( 'flat-custom_checkbox_and_radio', CHILD_URL . '/js/flat-ui/custom_checkbox_and_radio.js', array( 'jquery' ), false, true );
+	wp_register_script( 'flat-custom_radio', CHILD_URL . '/js/flat-ui/custom_radio.js', array( 'jquery' ), false, true );
+	wp_register_script( 'flat-jquery.tagsinput', CHILD_URL . '/js/flat-ui/jquery.tagsinput.js', array( 'jquery' ), false, true );
+	wp_register_script( 'flat-placeholder', CHILD_URL . '/js/flat-ui/jquery.placeholder.js', array( 'jquery' ), false, true );
+	wp_register_script( 'flat-video-js', 'http://vjs.zencdn.net/c/video.js', array( 'jquery' ), false, true );
+	wp_register_script( 'flat-application', CHILD_URL . '/js/flat-ui/application.js', array( 'jquery' ), false, true );
+	wp_register_script( 'flat-icon-font-ie7', CHILD_URL . '/js/flat-ui/icon-font-ie7.js', array( 'jquery' ), false, true );
+	wp_register_script( 'flat-lte-ie7-24', CHILD_URL . '/js/flat-ui/lte-ie7-24.js', array( 'jquery' ), false, true );
+
+	wp_register_script( 'chapters', CHILD_URL . '/js/chapters.js', array( 'jquery' ), false, true );
 
 	// Remove Edit link
 	add_filter( 'genesis_edit_post_link', '__return_false' );
 
 	// Responsive Meta Tag
 	add_action( 'genesis_meta', 'dp_viewport_meta_tag' );
+
+	// Add Body Class for Bootstrap
+	add_filter('body_class', 'body_class_container');
 
 	// Footer
 	remove_action( 'genesis_footer', 'genesis_do_footer' );
@@ -252,6 +280,19 @@ function dp_viewport_meta_tag() {
 	echo '<meta name="viewport" content="width=device-width, initial-scale=1.0"/>';
 	//echo '<base target="_parent" />';
 }
+
+/**
+ * Add body class for Bootstrap
+ *
+ * @author Del Putnam
+ */
+function body_class_container($classes) {
+	// add 'class-name' to the $classes array
+	$classes[] = 'container';
+	// return the $classes array
+	return $classes;
+}
+
 
 /**
  * Footer
