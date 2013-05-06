@@ -8,19 +8,32 @@ function removePageClasses() {
 
 $(document).ready(function(){
 
+	$('.chapters-subpage-link').click(function(){
+		$('.chapters-expanded').removeClass('chapters-expanded');
 
+		var pageName = 'chapters-sub-page-' + $(this).data('chapters-page-name');
+		$('#' + pageName).addClass('chapters-expanded');
+		$('#wrap').addClass('chapters-hidden');
+
+		$('#chapters-navbar .active').removeClass('active');
+		$(this).parent('li').addClass('active');
+	});
+
+
+/*
 	$('.home-nav-block .inner-wrap').click(function(){
 		var pageName = 'chapters-sub-page-' + $(this).data('chapters-page-name');
 
 		$('#' + pageName).addClass('chapters-expanded');
 		$('#wrap').addClass('chapters-hidden');
 	});
-	
-	
+
+
 	$('.chapters-sub-page-close').click(function(){
 		$(this).parent().removeClass('chapters-expanded');
 		$('#wrap').removeClass('chapters-hidden');
 	});
+*/
 
 });
 

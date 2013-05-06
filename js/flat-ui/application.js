@@ -10,7 +10,7 @@ $(function () {
 $(document).ready(function() {
     // Todo list
     $(".todo li").click(function() {
-        $(this).toggleClass("todo-done");
+        //$(this).toggleClass("todo-done");
     });
 
     // Init tooltips

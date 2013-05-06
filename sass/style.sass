@@ -16,19 +16,54 @@
  *	License URI: http://www.opensource.org/licenses/gpl-license.php
  */
 
-// Add custom colors
-@import custom/custom-colors
+// External libraries
+@import animation
+@import compass
 
-// Add the base styles for the child theme
+
+// Custom styles for the branched child theme
+@import custom/mixins
+@import custom/colors
+@import custom/fonts
+
+
+// Base styles for the child theme
 @import dp-base/base
 
 
-// Add the flat-ui theme
-@import flat-ui/flat-ui
+// Add the flat-ui overrides
+@import url('http://fonts.googleapis.com/css?family=Lato:400,700,900,400italic')
+@import flat-ui/icon-font
+@import flat-ui/icon-font-24
+
+@import flat-ui/config
+
+@import flat-ui/mixins
+
+//@import flat-ui/modules/type
+@import flat-ui/modules/btn
+//@import flat-ui/modules/demo
+@import flat-ui/modules/navbar
+//@import flat-ui/modules/select
+//@import flat-ui/modules/input
+//@import flat-ui/modules/checkbox-and-radio
+//@import flat-ui/modules/toggle
+//@import flat-ui/modules/tagsinput
+//@import flat-ui/modules/progress
+//@import flat-ui/modules/ui-slider
+//@import flat-ui/modules/pager
+//@import flat-ui/modules/pagination
+//@import flat-ui/modules/share
+//@import flat-ui/modules/tooltip
+//@import flat-ui/modules/palette
+//@import flat-ui/modules/tile
+//@import flat-ui/modules/todo
+//@import flat-ui/modules/footer
+//@import flat-ui/modules/video
+//@import flat-ui/modules/login
+//@import flat-ui/spaces
 
 
-// Add animations
-@import animation
-
-// Add custom styles
-@import custom/custom
+// Other custom overrides
+@import custom/type
+@import custom/style

@@ -3,42 +3,48 @@
 .demo-row
 	margin-top: 20px
 
+.chapters-sub-page-close
+	position: fixed
+	top: 8px
+	right: 8px
+	font-size: 24px
+
 
 // ANIMATIONS
 //-----------------------
-+keyframes(homeFadeInDown)
-	0%
-		+opacity(0)
-		+transform( translateY(-50px) )
-
-	100%
-		+opacity(1)
-		+transform( translateY(0px) )
-
-+keyframes(homeFadeInZoom)
-	0%
-		+opacity(0)
-		+scale(0.7)
-
-	100%
-		+opacity(100)
-		+scale(1)
-
-+keyframes(homeFadeOutZoom)
-	0%
-		+opacity(100)
-		+scale(1)
-
-	100%
-		+opacity(0)
-		+scale(0)
-
-+keyframes(homeHoverSlideUp)
-	0%
-		+transform( translateY(0px) )
-
-	100%
-		+transform( translateY(-50px) )
+//+keyframes(homeFadeInDown)
+//	0%
+//		+opacity(0)
+//		+transform( translateY(-50px) )
+//
+//	100%
+//		+opacity(1)
+//		+transform( translateY(0px) )
+//
+//+keyframes(homeFadeInZoom)
+//	0%
+//		+opacity(0)
+//		+scale(0.7)
+//
+//	100%
+//		+opacity(100)
+//		+scale(1)
+//
+//+keyframes(homeFadeOutZoom)
+//	0%
+//		+opacity(100)
+//		+scale(1)
+//
+//	100%
+//		+opacity(0)
+//		+scale(0)
+//
+//+keyframes(homeHoverSlideUp)
+//	0%
+//		+transform( translateY(0px) )
+//
+//	100%
+//		+transform( translateY(-50px) )
 
 // Common Properties
 //-----------------------
@@ -49,19 +55,6 @@ body
 	background-color: transparent
 	background-image: image-url('alumni-background.jpg')
 
-	#header img.home-header-image
-		display: block
-		margin: 20px auto
-		
-#wrap
-	//z-index: 10
-	//height: auto
-	//min-height: 100%
-	
-	//&.chapters-hidden
-	//	+transition( all 5s ease-in )
-	//	height: 0
-	//	overflow: hidden
 
 // Navbar
 //-----------------------
@@ -70,12 +63,13 @@ body
 	margin-top: 8px
 	position: fixed
 	top: 0
-	
+
 	.navbar-inner
 		padding: 0 10px 0 10px
 
 	.navbar-search
 		margin-top: 10px
+
 
 // Nav Blocks
 //-----------------------
@@ -145,56 +139,80 @@ body.chapters-page-nav
 // Sub-Pages
 //-----------------------
 .chapters-sub-page
+	margin-top: 80px
 	width: 100%
 	position: fixed
 	top: 100%
 	left: 0
 	z-index: 500
 	+scale( 0.7 )
-	+transition( all 0.3s ease-in )
-		
+	+opacity( 0 )
+	+transition( all 0.5s ease-in-out )
+
 	&.chapters-expanded
-		+transition( all 0.3s ease-in )
 		position: absolute
 		height: auto
+		min-height: 100%
 		top: 0
 		z-index: 1000
 		+scale( 1 )
-	
-	
-//.chapters-sub-page
-//	height: 0
-//	width: 0
-//	position: absolute
-//	+opacity( 0 )
-//	+border-radius( 50% )
-//	overflow: hidden
-//	
-//	&.chapters-expanded
-//		+transition( all 0.5s ease-in )
-//		min-height: 100%
-//		height: auto
-//		width: 100%
-//		top: 0 !important
-//		left: 0 !important
-//		+opacity( 100 )
-//		+border-radius( 0 )
-//
-//.chapters-sub-page-close
-//	position: absolute
-//	top: 16px
-//	right: 16px
-//	cursor: pointer
-//	
-//	.icon-remove-sign
-//		color: $retro-taupe-light
-//		font-size: 24px
-//
+		+opacity( 100 )
+		+border-radius( 0 )
+
+	.chapters-header
+		+clearfix
+
+		.chapters-header-image
+			width: 25%
+			+float-left
+
+		.chapters-header-title
+			width: 65%
+			+float-left
+			margin-left: 5%
+			margin-top: 30px
+			color: $retro-red
+
+			.chapters-page-title
+				font-family: "Arizonia", "Days", "Lato", Helvetica, sans-serif
+				font-size: 70px
+				text-align: right
+				margin-top: 20px
+
+#chapters-sub-page-nav
+	.chapters-header-image
+		width: 33.7%
+
+	.chapters-header-title
+		width: 60.3%
+		margin-left: 6%
+		margin-top: 42px
+
+		.chapters-title
+			font-size: 56px
+
+		#for, #you-roam
+			font-size: 100%
+			line-height: 100%
+
+		#for
+			text-align: left
+
+		#you-roam
+			text-align: right
+
+		#wherever
+			font-family: "Arizonia", "Days", "Lato", Helvetica, sans-serif
+			font-size: 203.56%
+			font-weight: 100
+			line-height: ( 0.4912 * 114 ) * 1%
+			margin-left: 10%
+
 #chapters-sub-page-map
-	background: $retro-blue-light
-	
+	//background: $retro-blue-light
+
 #chapters-sub-page-events
-	background: $retro-orange-light
-	
+	//background: $retro-orange-light
+
 #chapters-sub-page-notes
-	background: $retro-green-light
+	//background: $retro-green-light
