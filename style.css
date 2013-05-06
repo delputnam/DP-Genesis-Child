@@ -8679,6 +8679,16 @@ body {
     display: block;
     margin: 20px auto; }
 
+#chapters-navbar {
+  z-index: 2000;
+  margin-top: 8px;
+  position: fixed;
+  top: 0; }
+  #chapters-navbar .navbar-inner {
+    padding: 0 10px 0 10px; }
+  #chapters-navbar .navbar-search {
+    margin-top: 10px; }
+
 .home-nav-blocks {
   margin-top: 60px; }
   .home-nav-blocks .home-nav-block {
@@ -8736,7 +8746,12 @@ body.chapters-page-nav .home-nav-blocks .inner-wrap {
   position: fixed;
   top: 100%;
   left: 0;
-  z-index: 1000;
+  z-index: 500;
+  -webkit-transform: scale(0.7);
+  -moz-transform: scale(0.7);
+  -ms-transform: scale(0.7);
+  -o-transform: scale(0.7);
+  transform: scale(0.7);
   -webkit-transition: all 0.3s ease-in;
   -moz-transition: all 0.3s ease-in;
   -o-transition: all 0.3s ease-in;
@@ -8748,7 +8763,13 @@ body.chapters-page-nav .home-nav-blocks .inner-wrap {
     transition: all 0.3s ease-in;
     position: absolute;
     height: auto;
-    top: 0; }
+    top: 0;
+    z-index: 1000;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1); }
 
 #chapters-sub-page-map {
   background: #9dd8db; }

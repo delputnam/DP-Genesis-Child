@@ -35,6 +35,23 @@ wp_enqueue_script( 'flat-application' );
 
 wp_enqueue_script( 'chapters' );
 
+add_action( 'genesis_before_header', 'chapters_navbar' );
+function chapters_navbar() { ?>
+	<div id="chapters-navbar" class="navbar navbar-inverse">
+		<div class="navbar-inner">
+			<a class="brand" href="#">Regional W&M Alumni Chapters</a>
+			<ul class="nav">
+				<li><a href="#">Map</a>
+				<li><a href="#">Events</a>
+				<li><a href="#">Notes</a>
+			</ul>
+			<form class="navbar-search pull-right">
+			  <input type="text" class="search-query" placeholder="Search">
+			</form>
+		</div>
+	</div>
+<?php }
+
 add_action( 'genesis_post_content', 'chapters_do_home_content', 1 );
 function chapters_do_home_content() { ?>
 	<div class="row home-nav-blocks">

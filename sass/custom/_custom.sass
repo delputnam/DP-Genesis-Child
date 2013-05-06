@@ -63,11 +63,23 @@ body
 	//	height: 0
 	//	overflow: hidden
 
+// Navbar
+//-----------------------
+#chapters-navbar
+	z-index: 2000
+	margin-top: 8px
+	position: fixed
+	top: 0
+	
+	.navbar-inner
+		padding: 0 10px 0 10px
+
+	.navbar-search
+		margin-top: 10px
 
 // Nav Blocks
 //-----------------------
 .home-nav-blocks
-
 	margin-top: 60px
 
 	.home-nav-block
@@ -137,7 +149,8 @@ body.chapters-page-nav
 	position: fixed
 	top: 100%
 	left: 0
-	z-index: 1000
+	z-index: 500
+	+scale( 0.7 )
 	+transition( all 0.3s ease-in )
 		
 	&.chapters-expanded
@@ -145,6 +158,8 @@ body.chapters-page-nav
 		position: absolute
 		height: auto
 		top: 0
+		z-index: 1000
+		+scale( 1 )
 	
 	
 //.chapters-sub-page
