@@ -39,8 +39,8 @@ wp_enqueue_script( 'chapters' );
 
 add_action( 'genesis_before_header', 'chapters_navbar' );
 function chapters_navbar() { ?>
-	<div id="chapters-navbar" class="container">
-		<div class="navbar navbar-inverse">
+	<div id="chapters-navbar">
+		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
 				<ul class="nav">
 					<li class="active"><a class="chapters-subpage-link" data-chapters-page-name="nav" href="#">Regional W&M Alumni Chapters</a>

@@ -10,42 +10,6 @@
 	font-size: 24px
 
 
-// ANIMATIONS
-//-----------------------
-//+keyframes(homeFadeInDown)
-//	0%
-//		+opacity(0)
-//		+transform( translateY(-50px) )
-//
-//	100%
-//		+opacity(1)
-//		+transform( translateY(0px) )
-//
-//+keyframes(homeFadeInZoom)
-//	0%
-//		+opacity(0)
-//		+scale(0.7)
-//
-//	100%
-//		+opacity(100)
-//		+scale(1)
-//
-//+keyframes(homeFadeOutZoom)
-//	0%
-//		+opacity(100)
-//		+scale(1)
-//
-//	100%
-//		+opacity(0)
-//		+scale(0)
-//
-//+keyframes(homeHoverSlideUp)
-//	0%
-//		+transform( translateY(0px) )
-//
-//	100%
-//		+transform( translateY(-50px) )
-
 // Common Properties
 //-----------------------
 .preload *
@@ -58,17 +22,25 @@ body
 
 // Navbar
 //-----------------------
-#chapters-navbar
-	z-index: 2000
-	margin-top: 8px
-	position: fixed
-	top: 0
+.navbar
+	padding: 0 16px
 
-	.navbar-inner
-		padding: 0 10px 0 10px
+.navbar-inverse
+	background: $navbarInverseBackground
 
-	.navbar-search
-		margin-top: 10px
+.navbar-search
+	margin-top: 6px
+
+	input
+		+box-shadow( none )
+		border: none
+
+.dropdown-menu
+	+box-shadow( none )
+
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus,
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus, .dropdown-submenu:hover > a, .dropdown-submenu:focus > a
+	background-image: none
 
 
 // Nav Blocks
