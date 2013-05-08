@@ -22,18 +22,23 @@ body
 
 // Navbar
 //-----------------------
+#chapters-navbar
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	z-index: 3000
+
 .navbar
-	padding: 0 16px
 
 .navbar-inverse
 	background: $navbarInverseBackground
 
-.navbar-search
-	margin-top: 6px
+.navbar-inverse .navbar-search .search-query, .navbar-inverse .navbar-search .search-query:focus
+	+box-shadow( none )
+	border: none
 
-	input
-		+box-shadow( none )
-		border: none
+
 
 .dropdown-menu
 	+box-shadow( none )
@@ -131,27 +136,36 @@ body.chapters-page-nav
 		+opacity( 100 )
 		+border-radius( 0 )
 
-	.chapters-header
-		+clearfix
+.chapters-header, .chapters-header-small
+	+clearfix
 
-		.chapters-header-image
-			width: 25%
-			+float-left
+.chapters-header-image
+	+float-left
 
-		.chapters-header-title
-			width: 65%
-			+float-left
-			margin-left: 5%
-			margin-top: 30px
-			color: $retro-red
+.chapters-header-title
+	+float-left
+	color: $retro-red
 
-			.chapters-page-title
-				font-family: "Arizonia", "Days", "Lato", Helvetica, sans-serif
-				font-size: 70px
-				text-align: right
-				margin-top: 20px
+.chapters-header-script
+	font-family: "Arizonia", "Days", Helvetica, sans-serif
 
-#chapters-sub-page-nav
+.chapters-header-small
+	margin-bottom: 24px
+
+	.chapters-header-image
+		width: 25%
+
+	.chapters-header-title
+		width: 65%
+		margin-left: 5%
+		margin-top: 15px
+
+	.chapters-header-script
+		font-size: 52px
+		text-align: right
+		margin-top: 20px
+
+.chapters-header
 	.chapters-header-image
 		width: 33.7%
 
@@ -160,31 +174,19 @@ body.chapters-page-nav
 		margin-left: 6%
 		margin-top: 42px
 
-		.chapters-title
-			font-size: 56px
+	.chapters-title
+		font-size: 56px
+		line-height: 100%
 
-		#for, #you-roam
-			font-size: 100%
-			line-height: 100%
+	#for
+		text-align: left
 
-		#for
-			text-align: left
+	#you-roam
+		text-align: right
 
-		#you-roam
-			text-align: right
+	.chapters-header-script
+		font-size: 203.56%
+		font-weight: 100
+		line-height: ( 0.4912 * 114 ) * 1%
+		margin-left: 10%
 
-		#wherever
-			font-family: "Arizonia", "Days", "Lato", Helvetica, sans-serif
-			font-size: 203.56%
-			font-weight: 100
-			line-height: ( 0.4912 * 114 ) * 1%
-			margin-left: 10%
-
-#chapters-sub-page-map
-	//background: $retro-blue-light
-
-#chapters-sub-page-events
-	//background: $retro-orange-light
-
-#chapters-sub-page-notes
-	//background: $retro-green-light

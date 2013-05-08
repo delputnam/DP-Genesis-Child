@@ -7197,93 +7197,94 @@ body {
   background-image: url('/wp-content/themes/chapters/images/alumni-background.jpg?1367841266'); }
 
 /* line 25, ../sass/custom/_style.sass */
-.navbar {
-  padding: 0 16px; }
+#chapters-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3000; }
 
-/* line 28, ../sass/custom/_style.sass */
+/* line 34, ../sass/custom/_style.sass */
 .navbar-inverse {
   background: #3a2e1e; }
 
-/* line 31, ../sass/custom/_style.sass */
-.navbar-search {
-  margin-top: 6px; }
-  /* line 34, ../sass/custom/_style.sass */
-  .navbar-search input {
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    border: none; }
+/* line 37, ../sass/custom/_style.sass */
+.navbar-inverse .navbar-search .search-query, .navbar-inverse .navbar-search .search-query:focus {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border: none; }
 
-/* line 38, ../sass/custom/_style.sass */
+/* line 43, ../sass/custom/_style.sass */
 .dropdown-menu {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none; }
 
-/* line 41, ../sass/custom/_style.sass */
+/* line 46, ../sass/custom/_style.sass */
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus,
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus, .dropdown-submenu:hover > a, .dropdown-submenu:focus > a {
   background-image: none; }
 
-/* line 48, ../sass/custom/_style.sass */
+/* line 53, ../sass/custom/_style.sass */
 .home-nav-blocks {
   margin-top: 60px; }
-  /* line 51, ../sass/custom/_style.sass */
+  /* line 56, ../sass/custom/_style.sass */
   .home-nav-blocks .home-nav-block {
     width: 70%;
     margin: 0 auto; }
-    /* line 55, ../sass/custom/_style.sass */
+    /* line 60, ../sass/custom/_style.sass */
     .home-nav-blocks .home-nav-block .inner-wrap {
       padding: 25%;
       -webkit-border-radius: 50%;
       -moz-border-radius: 50%;
       border-radius: 50%; }
-    /* line 59, ../sass/custom/_style.sass */
+    /* line 64, ../sass/custom/_style.sass */
     .home-nav-blocks .home-nav-block img.home-nav-icon {
       margin: 0 auto;
       display: block; }
-    /* line 63, ../sass/custom/_style.sass */
+    /* line 68, ../sass/custom/_style.sass */
     .home-nav-blocks .home-nav-block h3.home-nav-title {
       margin: 15px 0 15px 0;
       font-weight: 700;
       text-align: center; }
-  /* line 69, ../sass/custom/_style.sass */
+  /* line 74, ../sass/custom/_style.sass */
   .home-nav-blocks .chapters-map .inner-wrap {
     background: #9dd8db;
     border: 8px solid #6bb0b5; }
-  /* line 73, ../sass/custom/_style.sass */
+  /* line 78, ../sass/custom/_style.sass */
   .home-nav-blocks .chapters-map h3.home-nav-title {
     color: #6bb0b5; }
-  /* line 77, ../sass/custom/_style.sass */
+  /* line 82, ../sass/custom/_style.sass */
   .home-nav-blocks .chapters-events .inner-wrap {
     background: #f9b86b;
     border: 8px solid #f28544; }
-  /* line 81, ../sass/custom/_style.sass */
+  /* line 86, ../sass/custom/_style.sass */
   .home-nav-blocks .chapters-events h3.home-nav-title {
     color: #f28544; }
-  /* line 85, ../sass/custom/_style.sass */
+  /* line 90, ../sass/custom/_style.sass */
   .home-nav-blocks .chapters-notes .inner-wrap {
     background: #d1d47d;
     border: 8px solid #b0b542; }
-  /* line 89, ../sass/custom/_style.sass */
+  /* line 94, ../sass/custom/_style.sass */
   .home-nav-blocks .chapters-notes h3.home-nav-title {
     color: #b0b542; }
 
-/* line 97, ../sass/custom/_style.sass */
+/* line 102, ../sass/custom/_style.sass */
 body.chapters-page-nav #header img.home-header-image {
   -webkit-animation: homeFadeInZoom 0.5s cubic-bezier(0.42, 0, 0.61, 1.455);
   -moz-animation: homeFadeInZoom 0.5s cubic-bezier(0.42, 0, 0.61, 1.455);
   -ms-animation: homeFadeInZoom 0.5s cubic-bezier(0.42, 0, 0.61, 1.455);
   -o-animation: homeFadeInZoom 0.5s cubic-bezier(0.42, 0, 0.61, 1.455);
   animation: homeFadeInZoom 0.5s cubic-bezier(0.42, 0, 0.61, 1.455); }
-/* line 102, ../sass/custom/_style.sass */
+/* line 107, ../sass/custom/_style.sass */
 body.chapters-page-nav .home-nav-blocks .inner-wrap {
   -webkit-transition: all 0.2s ease-in;
   -moz-transition: all 0.2s ease-in;
   -o-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
   cursor: pointer; }
-  /* line 105, ../sass/custom/_style.sass */
+  /* line 110, ../sass/custom/_style.sass */
   body.chapters-page-nav .home-nav-blocks .inner-wrap:hover {
     -webkit-transform:  scale(1.1, 1.1) rotateZ(0) translate(0, -15px);
     -moz-transform:  scale(1.1, 1.1) rotateZ(0) translate(0, -15px);
@@ -7291,7 +7292,7 @@ body.chapters-page-nav .home-nav-blocks .inner-wrap {
     -o-transform:  scale(1.1, 1.1) rotateZ(0) translate(0, -15px);
     transform:  scale(1.1, 1.1) rotateZ(0) translate(0, -15px); }
 
-/* line 113, ../sass/custom/_style.sass */
+/* line 118, ../sass/custom/_style.sass */
 .chapters-sub-page {
   margin-top: 80px;
   width: 100%;
@@ -7310,7 +7311,7 @@ body.chapters-page-nav .home-nav-blocks .inner-wrap {
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out; }
-  /* line 124, ../sass/custom/_style.sass */
+  /* line 129, ../sass/custom/_style.sass */
   .chapters-sub-page.chapters-expanded {
     position: absolute;
     height: auto;
@@ -7327,62 +7328,72 @@ body.chapters-page-nav .home-nav-blocks .inner-wrap {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0; }
-  /* line 134, ../sass/custom/_style.sass */
-  .chapters-sub-page .chapters-header {
-    *zoom: 1; }
-    /* line 15, ../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.0/vendor/assets/stylesheets/bootstrap/_mixins.scss */
-    .chapters-sub-page .chapters-header:before, .chapters-sub-page .chapters-header:after {
-      display: table;
-      content: "";
-      line-height: 0; }
-    /* line 22, ../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.0/vendor/assets/stylesheets/bootstrap/_mixins.scss */
-    .chapters-sub-page .chapters-header:after {
-      clear: both; }
-    /* line 137, ../sass/custom/_style.sass */
-    .chapters-sub-page .chapters-header .chapters-header-image {
-      width: 25%;
-      display: inline;
-      float: left; }
-    /* line 141, ../sass/custom/_style.sass */
-    .chapters-sub-page .chapters-header .chapters-header-title {
-      width: 65%;
-      display: inline;
-      float: left;
-      margin-left: 5%;
-      margin-top: 30px;
-      color: #d4320c; }
-      /* line 148, ../sass/custom/_style.sass */
-      .chapters-sub-page .chapters-header .chapters-header-title .chapters-page-title {
-        font-family: "Arizonia", "Days", "Lato", Helvetica, sans-serif;
-        font-size: 70px;
-        text-align: right;
-        margin-top: 20px; }
 
-/* line 155, ../sass/custom/_style.sass */
-#chapters-sub-page-nav .chapters-header-image {
+/* line 139, ../sass/custom/_style.sass */
+.chapters-header, .chapters-header-small {
+  *zoom: 1; }
+  /* line 15, ../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.0/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .chapters-header:before, .chapters-header:after, .chapters-header-small:before, .chapters-header-small:after {
+    display: table;
+    content: "";
+    line-height: 0; }
+  /* line 22, ../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.0/vendor/assets/stylesheets/bootstrap/_mixins.scss */
+  .chapters-header:after, .chapters-header-small:after {
+    clear: both; }
+
+/* line 142, ../sass/custom/_style.sass */
+.chapters-header-image {
+  display: inline;
+  float: left; }
+
+/* line 145, ../sass/custom/_style.sass */
+.chapters-header-title {
+  display: inline;
+  float: left;
+  color: #d4320c; }
+
+/* line 149, ../sass/custom/_style.sass */
+.chapters-header-script {
+  font-family: "Arizonia", "Days", Helvetica, sans-serif; }
+
+/* line 152, ../sass/custom/_style.sass */
+.chapters-header-small {
+  margin-bottom: 24px; }
+  /* line 155, ../sass/custom/_style.sass */
+  .chapters-header-small .chapters-header-image {
+    width: 25%; }
+  /* line 158, ../sass/custom/_style.sass */
+  .chapters-header-small .chapters-header-title {
+    width: 65%;
+    margin-left: 5%;
+    margin-top: 15px; }
+  /* line 163, ../sass/custom/_style.sass */
+  .chapters-header-small .chapters-header-script {
+    font-size: 52px;
+    text-align: right;
+    margin-top: 20px; }
+
+/* line 169, ../sass/custom/_style.sass */
+.chapters-header .chapters-header-image {
   width: 33.7%; }
-/* line 158, ../sass/custom/_style.sass */
-#chapters-sub-page-nav .chapters-header-title {
+/* line 172, ../sass/custom/_style.sass */
+.chapters-header .chapters-header-title {
   width: 60.3%;
   margin-left: 6%;
   margin-top: 42px; }
-  /* line 163, ../sass/custom/_style.sass */
-  #chapters-sub-page-nav .chapters-header-title .chapters-title {
-    font-size: 56px; }
-  /* line 166, ../sass/custom/_style.sass */
-  #chapters-sub-page-nav .chapters-header-title #for, #chapters-sub-page-nav .chapters-header-title #you-roam {
-    font-size: 100%;
-    line-height: 100%; }
-  /* line 170, ../sass/custom/_style.sass */
-  #chapters-sub-page-nav .chapters-header-title #for {
-    text-align: left; }
-  /* line 173, ../sass/custom/_style.sass */
-  #chapters-sub-page-nav .chapters-header-title #you-roam {
-    text-align: right; }
-  /* line 176, ../sass/custom/_style.sass */
-  #chapters-sub-page-nav .chapters-header-title #wherever {
-    font-family: "Arizonia", "Days", "Lato", Helvetica, sans-serif;
-    font-size: 203.56%;
-    font-weight: 100;
-    line-height: 55.9968%;
-    margin-left: 10%; }
+/* line 177, ../sass/custom/_style.sass */
+.chapters-header .chapters-title {
+  font-size: 56px;
+  line-height: 100%; }
+/* line 181, ../sass/custom/_style.sass */
+.chapters-header #for {
+  text-align: left; }
+/* line 184, ../sass/custom/_style.sass */
+.chapters-header #you-roam {
+  text-align: right; }
+/* line 187, ../sass/custom/_style.sass */
+.chapters-header .chapters-header-script {
+  font-size: 203.56%;
+  font-weight: 100;
+  line-height: 55.9968%;
+  margin-left: 10%; }

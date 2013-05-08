@@ -10,7 +10,7 @@
  * @license      http://opensource.org/licenses/gpl-2.0.php GNU Public License
  *
  */
- 
+
 
 /**
  * Theme Setup
@@ -127,6 +127,9 @@ function child_theme_setup() {
 
 	wp_register_script( 'chapters', CHILD_URL . '/js/chapters.js', array( 'jquery' ), false, true );
 
+	wp_enqueue_script( 'bootstrap-dropdown' );
+	wp_enqueue_script( 'chapters' );
+
 	// Remove Edit link
 	add_filter( 'genesis_edit_post_link', '__return_false' );
 
@@ -135,6 +138,9 @@ function child_theme_setup() {
 
 	// Add Body Class for Bootstrap
 	add_filter('body_class', 'body_class_container');
+
+	//
+	add_action( 'genesis_before_header', 'chapters_navbar' );
 
 	// Footer
 	remove_action( 'genesis_footer', 'genesis_do_footer' );
@@ -293,6 +299,43 @@ function body_class_container($classes) {
 	return $classes;
 }
 
+function chapters_navbar() {
+
+
+
+?>
+	<div id="chapters-navbar">
+		<div class="navbar navbar-inverse">
+			<div class="navbar-inner container">
+				<ul class="nav">
+					<li class="active"><a class="chapters-subpage-link" data-chapters-page-name="nav" href="/">Regional W&M Alumni Chapters</a>
+					<li><a class="chapters-subpage-link" data-chapters-page-name="map" href="/map">Map</a>
+					<li><a class="chapters-subpage-link" data-chapters-page-name="events" href="/events">Events</a>
+					<li><a class="chapters-subpage-link" data-chapters-page-name="notes" href="/notes">Notes</a>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							Chapters
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a class="chapters-subpage-link" data-chapters-page-name="atlanta" href="/chapter/atlanta">Atlanta</a></li>
+							<li><a class="chapters-subpage-link" data-chapters-page-name="baltimore-annapolis" href="/chapter/baltimore-annapolis">Baltimore/Annapolis</a></li>
+							<li><a class="chapters-subpage-link" data-chapters-page-name="boston" href="/chapter/boston">Boston</a></li>
+							<li><a class="chapters-subpage-link" data-chapters-page-name="botetourt" href="/chapter/botetourt">Botetourt</a></li>
+							<li><a class="chapters-subpage-link" data-chapters-page-name="charleston" href="/chapter/charleston">Charleston</a></li>
+							<li><a class="chapters-subpage-link" data-chapters-page-name="greater-charlotte" href="/greater-charlotte">Greater Charlotte</a></li>
+							<li><a class="chapters-subpage-link" data-chapters-page-name="charlottesville-highlands" href="/chapter/charlottesville-highlands">Charlottesville-Highlands</a></li>
+							<li><a class="chapters-subpage-link" data-chapters-page-name="chicago" href="/chapter/chicago">Chicago</a></li>
+						</ul>
+					</li>
+				</ul>
+				<form class="navbar-search pull-right">
+				  <input type="text" class="search-query" placeholder="Search">
+				</form>
+			</div>
+		</div>
+	</div>
+<?php }
 
 /**
  * Footer
@@ -301,4 +344,20 @@ function body_class_container($classes) {
 function dp_footer() {
 	echo '<div class="one-half first" id="footer-left">' . wpautop( genesis_get_option( 'footer-left', 'child-settings' ) ) . '</div>';
 	echo '<div class="one-half" id="footer-right">' . wpautop( genesis_get_option( 'footer-right', 'child-settings' ) ) . '</div>';
+}
+
+/**
+ * Include Chapter Page Template
+ *
+ */
+add_filter( 'template_include', 'include_chapter_page_template' );
+function include_chapter_page_template( $template ) {
+
+	if ( get_post_type() == 'chapter_page' ) {
+		if ( is_single() ) {
+			$template = CHILD_DIR . '/page-templates/single-chapter_page.php';
+		}
+	}
+
+	return $template;
 }

@@ -6,7 +6,6 @@ Template Name: WMAA Chapters Home Page
 add_filter('body_class', 'body_class_stripes');
 function body_class_stripes($classes) {
 	// add 'class-name' to the $classes array
-	$classes[] = 'background-stripes';
 	$classes[] = 'chapters-page-nav';
 	$classes[] = 'preload';
 	// return the $classes array
@@ -21,56 +20,6 @@ function chapters_do_header() { ?>
 
 remove_action( 'genesis_post_title', 'genesis_do_post_title' );
 
-//wp_enqueue_script( 'flat-jquery-ui' );
-//wp_enqueue_script( 'flat-dropkick' );
-//wp_enqueue_script( 'flat-custom_checkbox_and_radio' );
-//wp_enqueue_script( 'flat-custom_radio' );
-//wp_enqueue_script( 'flat-jquery.tagsinput' );
-//wp_enqueue_script( 'bootstrap-tooltip' );
-//wp_enqueue_script( 'flat-placeholder' );
-//wp_enqueue_script( 'flat-video-js' );
-//wp_enqueue_script( 'flat-application' );
-//wp_enqueue_script( 'flat-icon-font-ie7' );
-//wp_enqueue_script( 'flat-icon-lte-ie7-24' );
-
-wp_enqueue_script( 'bootstrap-dropdown' );
-
-wp_enqueue_script( 'chapters' );
-
-add_action( 'genesis_before_header', 'chapters_navbar' );
-function chapters_navbar() { ?>
-	<div id="chapters-navbar">
-		<div class="navbar navbar-inverse navbar-fixed-top">
-			<div class="navbar-inner">
-				<ul class="nav">
-					<li class="active"><a class="chapters-subpage-link" data-chapters-page-name="nav" href="#">Regional W&M Alumni Chapters</a>
-					<li><a class="chapters-subpage-link" data-chapters-page-name="map" href="#">Map</a>
-					<li><a class="chapters-subpage-link" data-chapters-page-name="events" href="#">Events</a>
-					<li><a class="chapters-subpage-link" data-chapters-page-name="notes" href="#">Notes</a>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							Chapters
-							<b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a class="chapters-subpage-link" data-chapters-page-name="atlanta" href="#">Atlanta</a></li>
-							<li><a class="chapters-subpage-link" data-chapters-page-name="baltimore-annapolis" href="#">Baltimore/Annapolis</a></li>
-							<li><a class="chapters-subpage-link" data-chapters-page-name="boston" href="#">Boston</a></li>
-							<li><a class="chapters-subpage-link" data-chapters-page-name="botetourt" href="#">Botetourt</a></li>
-							<li><a class="chapters-subpage-link" data-chapters-page-name="charleston" href="#">Charleston</a></li>
-							<li><a class="chapters-subpage-link" data-chapters-page-name="greater-charlotte" href="#">Greater Charlotte</a></li>
-							<li><a class="chapters-subpage-link" data-chapters-page-name="charlottesville-highlands" href="#">Charlottesville-Highlands</a></li>
-							<li><a class="chapters-subpage-link" data-chapters-page-name="chicago" href="#">Chicago</a></li>
-						</ul>
-					</li>
-				</ul>
-				<form class="navbar-search pull-right">
-				  <input type="text" class="search-query" placeholder="Search">
-				</form>
-			</div>
-		</div>
-	</div>
-<?php }
 
 add_action( 'genesis_post_content', 'chapters_do_home_content', 1 );
 function chapters_do_home_content() { ?>
@@ -83,7 +32,7 @@ function chapters_do_home_content() { ?>
 			<div class="chapters-header-title">
 				<h1 class="chapters-title">
 					<div id="for">For</div>
-					<div id="wherever">wherever</div>
+					<div id="wherever" class="chapters-header-script">wherever</div>
 					<div id="you-roam">you roam...</div>
 				</h1>
 			</div>
