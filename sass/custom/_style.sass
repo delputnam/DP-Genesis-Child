@@ -12,7 +12,7 @@
 
 // Common Properties
 //-----------------------
-.preload *
+.no-js .chapters-sub-page
 	+transition( none !important )
 
 body
@@ -22,12 +22,12 @@ body
 
 // Navbar
 //-----------------------
-#chapters-navbar
-	position: fixed
-	top: 0
-	left: 0
-	width: 100%
-	z-index: 3000
+//#chapters-navbar
+//	position: fixed
+//	top: 0
+//	left: 0
+//	width: 100%
+//	z-index: 3000
 
 .navbar
 
@@ -42,6 +42,8 @@ body
 
 .dropdown-menu
 	+box-shadow( none )
+	max-height: 500px
+	overflow: auto
 
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus,
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus, .dropdown-submenu:hover > a, .dropdown-submenu:focus > a
@@ -129,7 +131,7 @@ body.chapters-page-nav
 	&.chapters-expanded
 		position: absolute
 		height: auto
-		min-height: 100%
+		//min-height: 100%
 		top: 0
 		z-index: 1000
 		+scale( 1 )
@@ -153,15 +155,15 @@ body.chapters-page-nav
 	margin-bottom: 24px
 
 	.chapters-header-image
-		width: 25%
+		width: 20%
 
 	.chapters-header-title
-		width: 65%
+		width: 70%
 		margin-left: 5%
 		margin-top: 15px
 
 	.chapters-header-script
-		font-size: 52px
+		font-size: 68px
 		text-align: right
 		margin-top: 20px
 

@@ -24,7 +24,7 @@ remove_action( 'genesis_post_title', 'genesis_do_post_title' );
 add_action( 'genesis_post_content', 'chapters_do_home_content', 1 );
 function chapters_do_home_content() { ?>
 
-<div class="chapters-sub-page chapters-expanded" id="chapters-sub-page-nav">
+<div class="chapters-sub-page chapters-expanded" id="chapters-sub-page-home">
 	<div class="container">
 
 		<div class="chapters-header">
@@ -41,9 +41,10 @@ function chapters_do_home_content() { ?>
 		<div class="row home-nav-blocks">
 			<div class="outer-wrap span4">
 				<div class="home-nav-block chapters-map">
-					<div class="inner-wrap chapters-subpage-link"
-						data-chapters-page-name="map">
-						<img class="home-nav-icon" src="<?php echo CHILD_URL; ?>/images/icon-flat-map.png" >
+					<div class="inner-wrap">
+						<a class="chapters-subpage-link" data-chapters-page-name="map" href="/map">
+							<img class="home-nav-icon" src="<?php echo CHILD_URL; ?>/images/icon-flat-map.png" >
+						</a>
 					</div>
 					<h3 class="home-nav-title">Locate Chapters</h3>
 					<p>Aenean eu leo quam. <a href="#">Pellentesque ornare sem</a> lacinia quam venenatis vestibulum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
@@ -51,9 +52,10 @@ function chapters_do_home_content() { ?>
 			</div>
 			<div class="outer-wrap span4">
 				<div class="home-nav-block chapters-events">
-					<div class="inner-wrap chapters-subpage-link"
-						data-chapters-page-name="events">
-						<img class="home-nav-icon" src="<?php echo CHILD_URL; ?>/images/icon-flat-calendar.png" >
+					<div class="inner-wrap">
+						<a class="chapters-subpage-link" data-chapters-page-name="events" href="/events">
+							<img class="home-nav-icon" src="<?php echo CHILD_URL; ?>/images/icon-flat-calendar.png" >
+						</a>
 					</div>
 					<h3 class="home-nav-title">Chapter Events</h3>
 					<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec sed odio dui. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
@@ -61,9 +63,10 @@ function chapters_do_home_content() { ?>
 			</div>
 			<div class="outer-wrap span4">
 				<div class="home-nav-block chapters-notes">
-					<div class="inner-wrap chapters-subpage-link"
-						data-chapters-page-name="notes">
-						<img class="home-nav-icon" src="<?php echo CHILD_URL; ?>/images/icon-flat-book.png" >
+					<div class="inner-wrap">
+						<a class="chapters-subpage-link" data-chapters-page-name="notes" href="/notes">
+							<img class="home-nav-icon" src="<?php echo CHILD_URL; ?>/images/icon-flat-book.png" >
+						</a>
 					</div>
 					<h3 class="home-nav-title">Notes<br>from Kelly</h3>
 					<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas faucibus mollis interdum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. <a href="#">Nullam quis</a> risus eget urna mollis ornare vel eu leo. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
@@ -76,7 +79,7 @@ function chapters_do_home_content() { ?>
 
 <?php }
 
-add_action( 'genesis_post_content', 'chapters_sub_page_content', 2 );
+//add_action( 'genesis_post_content', 'chapters_sub_page_content', 2 );
 function chapters_sub_page_content() { ?>
 
 	<div class="chapters-sub-page" id="chapters-sub-page-map">

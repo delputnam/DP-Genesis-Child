@@ -30,6 +30,7 @@ function child_theme_setup() {
 
 	// ** Includes **
 	include_once( CHILD_DIR . '/lib/functions/helpers.php' );
+	include_once( CHILD_DIR . '/lib/functions/page-content.php' );
 
 	// ** Backend **
 
@@ -97,7 +98,8 @@ function child_theme_setup() {
 	//wp_register_style( 'dp-style', CHILD_URL . '/css/dp-style.css' );
 
 	// Register Scripts
-	wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js', false, false, true );
+	//wp_deregister_script( 'jquery' );
+	//wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js', false, false, true );
 
 	wp_register_script( 'content-script', CHILD_URL . '/js/bootstrap/content-functions.js', array( 'jquery' ), false, true );
 	wp_register_script( 'bootstrap-affix', CHILD_URL . '/js/bootstrap/bootstrap-affix.js', array( 'jquery' ), false, true );
@@ -295,47 +297,112 @@ function dp_viewport_meta_tag() {
 function body_class_container($classes) {
 	// add 'class-name' to the $classes array
 	$classes[] = 'container';
+	$classes[] = 'no-js';
 	// return the $classes array
 	return $classes;
 }
 
 function chapters_navbar() {
+	global $post;
 
-
+	$current_post = $post->ID;
 
 ?>
 	<div id="chapters-navbar">
-		<div class="navbar navbar-inverse">
+		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner container">
 				<ul class="nav">
-					<li class="active"><a class="chapters-subpage-link" data-chapters-page-name="nav" href="/">Regional W&M Alumni Chapters</a>
-					<li><a class="chapters-subpage-link" data-chapters-page-name="map" href="/map">Map</a>
-					<li><a class="chapters-subpage-link" data-chapters-page-name="events" href="/events">Events</a>
-					<li><a class="chapters-subpage-link" data-chapters-page-name="notes" href="/notes">Notes</a>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							Chapters
-							<b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a class="chapters-subpage-link" data-chapters-page-name="atlanta" href="/chapter/atlanta">Atlanta</a></li>
-							<li><a class="chapters-subpage-link" data-chapters-page-name="baltimore-annapolis" href="/chapter/baltimore-annapolis">Baltimore/Annapolis</a></li>
-							<li><a class="chapters-subpage-link" data-chapters-page-name="boston" href="/chapter/boston">Boston</a></li>
-							<li><a class="chapters-subpage-link" data-chapters-page-name="botetourt" href="/chapter/botetourt">Botetourt</a></li>
-							<li><a class="chapters-subpage-link" data-chapters-page-name="charleston" href="/chapter/charleston">Charleston</a></li>
-							<li><a class="chapters-subpage-link" data-chapters-page-name="greater-charlotte" href="/greater-charlotte">Greater Charlotte</a></li>
-							<li><a class="chapters-subpage-link" data-chapters-page-name="charlottesville-highlands" href="/chapter/charlottesville-highlands">Charlottesville-Highlands</a></li>
-							<li><a class="chapters-subpage-link" data-chapters-page-name="chicago" href="/chapter/chicago">Chicago</a></li>
+<?php
+
+	$args = array(
+		'post_type' => 'page',
+		'orderby' => 'menu_order',
+		'order' => 'ASC',
+		'nopaging' => true
+	);
+
+	// The Query
+	$query = new WP_Query( $args );
+
+	// The Loop
+	while ( $query->have_posts() ) :
+		$query->the_post();
+
+		$menu_item = '<li';
+		if ( $current_post == $post->ID ) {
+			$menu_item .= ' class="active"';
+		}
+
+		$permalink = is_front_page() ? 'home' : basename( get_permalink() );
+
+		$menu_item .= '><a class="chapters-subpage-link" data-chapters-page-name="' . $post->post_name . '" href="';
+		$menu_item .= get_permalink();
+		$menu_item .= '">' . get_the_title() . '</a></li>';
+
+		echo $menu_item;
+
+	endwhile;
+
+	// Restore original Post Data
+	wp_reset_postdata();
+
+?>
+	<li class="dropdown">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+			Chapters
+			<b class="caret"></b>
+		</a>
+		<ul class="dropdown-menu" role="menu">
+<?php
+
+	$args = array(
+		'post_type' => 'chapter_page',
+		'orderby' => 'title',
+		'order' => 'ASC',
+		'nopaging' => true
+	);
+
+	// The Query
+	$query = new WP_Query( $args );
+
+	// The Loop
+	while ( $query->have_posts() ) :
+		$query->the_post();
+
+		$menu_item = '<li';
+		if ( $current_post == $post->ID ) {
+			$menu_item .= ' class="active"';
+		}
+
+		$menu_item .= '><a class="chapters-subpage-link" data-chapters-page-name="' . $post->post_name . '" href="';
+		$menu_item .= get_permalink();
+		$menu_item .= '">' . get_the_title() . '</a></li>';
+
+		echo $menu_item;
+
+	endwhile;
+
+	// Restore original Post Data
+	wp_reset_postdata();
+
+
+?>
+
+
 						</ul>
 					</li>
 				</ul>
-				<form class="navbar-search pull-right">
-				  <input type="text" class="search-query" placeholder="Search">
+				<form class="navbar-search pull-right" id="searchform" action="<?php echo home_url( '/' ); ?>">
+				  <input type="text" class="search-query" placeholder="Search" value="" name="s" id="s">
 				</form>
 			</div>
 		</div>
 	</div>
-<?php }
+
+
+
+<?php
+}
 
 /**
  * Footer
@@ -355,8 +422,14 @@ function include_chapter_page_template( $template ) {
 
 	if ( get_post_type() == 'chapter_page' ) {
 		if ( is_single() ) {
-			$template = CHILD_DIR . '/page-templates/single-chapter_page.php';
+			if ( isset( $_REQUEST['content-only'] ) ) {
+				$template = CHILD_DIR . '/page-templates/content-only-chapter_page.php';
+			} else {
+				$template = CHILD_DIR . '/page-templates/single-chapter_page.php';
+			}
 		}
+	} elseif ( isset( $_REQUEST['content-only'] ) ) {
+		$template = CHILD_DIR . '/page-templates/content-only-chapter_page.php';
 	}
 
 	return $template;
