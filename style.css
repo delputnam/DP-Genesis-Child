@@ -7196,18 +7196,18 @@ body {
   background-color: transparent;
   background-image: url('/wp-content/themes/chapters/images/alumni-background.jpg?1367841266'); }
 
-/* line 34, ../sass/custom/_style.sass */
+/* line 25, ../sass/custom/_style.sass */
 .navbar-inverse {
   background: #3a2e1e; }
 
-/* line 37, ../sass/custom/_style.sass */
+/* line 28, ../sass/custom/_style.sass */
 .navbar-inverse .navbar-search .search-query, .navbar-inverse .navbar-search .search-query:focus {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
   border: none; }
 
-/* line 43, ../sass/custom/_style.sass */
+/* line 32, ../sass/custom/_style.sass */
 .dropdown-menu {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
@@ -7215,70 +7215,70 @@ body {
   max-height: 500px;
   overflow: auto; }
 
-/* line 48, ../sass/custom/_style.sass */
+/* line 37, ../sass/custom/_style.sass */
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus,
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus, .dropdown-submenu:hover > a, .dropdown-submenu:focus > a {
   background-image: none; }
 
-/* line 55, ../sass/custom/_style.sass */
+/* line 44, ../sass/custom/_style.sass */
 .home-nav-blocks {
   margin-top: 60px; }
-  /* line 58, ../sass/custom/_style.sass */
+  /* line 47, ../sass/custom/_style.sass */
   .home-nav-blocks .home-nav-block {
     width: 70%;
     margin: 0 auto; }
-    /* line 62, ../sass/custom/_style.sass */
+    /* line 51, ../sass/custom/_style.sass */
     .home-nav-blocks .home-nav-block .inner-wrap {
       padding: 25%;
       -webkit-border-radius: 50%;
       -moz-border-radius: 50%;
       border-radius: 50%; }
-    /* line 66, ../sass/custom/_style.sass */
+    /* line 55, ../sass/custom/_style.sass */
     .home-nav-blocks .home-nav-block img.home-nav-icon {
       margin: 0 auto;
       display: block; }
-    /* line 70, ../sass/custom/_style.sass */
+    /* line 59, ../sass/custom/_style.sass */
     .home-nav-blocks .home-nav-block h3.home-nav-title {
       margin: 15px 0 15px 0;
       font-weight: 700;
       text-align: center; }
-  /* line 76, ../sass/custom/_style.sass */
+  /* line 65, ../sass/custom/_style.sass */
   .home-nav-blocks .chapters-map .inner-wrap {
     background: #9dd8db;
     border: 8px solid #6bb0b5; }
-  /* line 80, ../sass/custom/_style.sass */
+  /* line 69, ../sass/custom/_style.sass */
   .home-nav-blocks .chapters-map h3.home-nav-title {
     color: #6bb0b5; }
-  /* line 84, ../sass/custom/_style.sass */
+  /* line 73, ../sass/custom/_style.sass */
   .home-nav-blocks .chapters-events .inner-wrap {
     background: #f9b86b;
     border: 8px solid #f28544; }
-  /* line 88, ../sass/custom/_style.sass */
+  /* line 77, ../sass/custom/_style.sass */
   .home-nav-blocks .chapters-events h3.home-nav-title {
     color: #f28544; }
-  /* line 92, ../sass/custom/_style.sass */
+  /* line 81, ../sass/custom/_style.sass */
   .home-nav-blocks .chapters-notes .inner-wrap {
     background: #d1d47d;
     border: 8px solid #b0b542; }
-  /* line 96, ../sass/custom/_style.sass */
+  /* line 85, ../sass/custom/_style.sass */
   .home-nav-blocks .chapters-notes h3.home-nav-title {
     color: #b0b542; }
 
-/* line 104, ../sass/custom/_style.sass */
+/* line 93, ../sass/custom/_style.sass */
 body.chapters-page-nav #header img.home-header-image {
   -webkit-animation: homeFadeInZoom 0.5s cubic-bezier(0.42, 0, 0.61, 1.455);
   -moz-animation: homeFadeInZoom 0.5s cubic-bezier(0.42, 0, 0.61, 1.455);
   -ms-animation: homeFadeInZoom 0.5s cubic-bezier(0.42, 0, 0.61, 1.455);
   -o-animation: homeFadeInZoom 0.5s cubic-bezier(0.42, 0, 0.61, 1.455);
   animation: homeFadeInZoom 0.5s cubic-bezier(0.42, 0, 0.61, 1.455); }
-/* line 109, ../sass/custom/_style.sass */
+/* line 98, ../sass/custom/_style.sass */
 body.chapters-page-nav .home-nav-blocks .inner-wrap {
   -webkit-transition: all 0.2s ease-in;
   -moz-transition: all 0.2s ease-in;
   -o-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
   cursor: pointer; }
-  /* line 112, ../sass/custom/_style.sass */
+  /* line 101, ../sass/custom/_style.sass */
   body.chapters-page-nav .home-nav-blocks .inner-wrap:hover {
     -webkit-transform:  scale(1.1, 1.1) rotateZ(0) translate(0, -15px);
     -moz-transform:  scale(1.1, 1.1) rotateZ(0) translate(0, -15px);
@@ -7286,7 +7286,7 @@ body.chapters-page-nav .home-nav-blocks .inner-wrap {
     -o-transform:  scale(1.1, 1.1) rotateZ(0) translate(0, -15px);
     transform:  scale(1.1, 1.1) rotateZ(0) translate(0, -15px); }
 
-/* line 120, ../sass/custom/_style.sass */
+/* line 110, ../sass/custom/_style.sass */
 .chapters-sub-page {
   margin-top: 80px;
   width: 100%;
@@ -7305,7 +7305,7 @@ body.chapters-page-nav .home-nav-blocks .inner-wrap {
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out; }
-  /* line 131, ../sass/custom/_style.sass */
+  /* line 121, ../sass/custom/_style.sass */
   .chapters-sub-page.chapters-expanded {
     position: absolute;
     height: auto;
@@ -7322,7 +7322,7 @@ body.chapters-page-nav .home-nav-blocks .inner-wrap {
     -moz-border-radius: 0;
     border-radius: 0; }
 
-/* line 141, ../sass/custom/_style.sass */
+/* line 131, ../sass/custom/_style.sass */
 .chapters-header, .chapters-header-small {
   *zoom: 1; }
   /* line 15, ../../../../../../../../Library/Ruby/Gems/1.8/gems/bootstrap-sass-2.3.1.0/vendor/assets/stylesheets/bootstrap/_mixins.scss */
@@ -7334,57 +7334,57 @@ body.chapters-page-nav .home-nav-blocks .inner-wrap {
   .chapters-header:after, .chapters-header-small:after {
     clear: both; }
 
-/* line 144, ../sass/custom/_style.sass */
+/* line 134, ../sass/custom/_style.sass */
 .chapters-header-image {
   display: inline;
   float: left; }
 
-/* line 147, ../sass/custom/_style.sass */
+/* line 137, ../sass/custom/_style.sass */
 .chapters-header-title {
   display: inline;
   float: left;
   color: #d4320c; }
 
-/* line 151, ../sass/custom/_style.sass */
+/* line 141, ../sass/custom/_style.sass */
 .chapters-header-script {
   font-family: "Arizonia", "Days", Helvetica, sans-serif; }
 
-/* line 154, ../sass/custom/_style.sass */
+/* line 144, ../sass/custom/_style.sass */
 .chapters-header-small {
   margin-bottom: 24px; }
-  /* line 157, ../sass/custom/_style.sass */
+  /* line 147, ../sass/custom/_style.sass */
   .chapters-header-small .chapters-header-image {
     width: 20%; }
-  /* line 160, ../sass/custom/_style.sass */
+  /* line 150, ../sass/custom/_style.sass */
   .chapters-header-small .chapters-header-title {
     width: 70%;
     margin-left: 5%;
     margin-top: 15px; }
-  /* line 165, ../sass/custom/_style.sass */
+  /* line 155, ../sass/custom/_style.sass */
   .chapters-header-small .chapters-header-script {
     font-size: 68px;
     text-align: right;
     margin-top: 20px; }
 
-/* line 171, ../sass/custom/_style.sass */
+/* line 161, ../sass/custom/_style.sass */
 .chapters-header .chapters-header-image {
   width: 33.7%; }
-/* line 174, ../sass/custom/_style.sass */
+/* line 164, ../sass/custom/_style.sass */
 .chapters-header .chapters-header-title {
   width: 60.3%;
   margin-left: 6%;
   margin-top: 42px; }
-/* line 179, ../sass/custom/_style.sass */
+/* line 169, ../sass/custom/_style.sass */
 .chapters-header .chapters-title {
   font-size: 56px;
   line-height: 100%; }
-/* line 183, ../sass/custom/_style.sass */
+/* line 173, ../sass/custom/_style.sass */
 .chapters-header #for {
   text-align: left; }
-/* line 186, ../sass/custom/_style.sass */
+/* line 176, ../sass/custom/_style.sass */
 .chapters-header #you-roam {
   text-align: right; }
-/* line 189, ../sass/custom/_style.sass */
+/* line 179, ../sass/custom/_style.sass */
 .chapters-header .chapters-header-script {
   font-size: 203.56%;
   font-weight: 100;

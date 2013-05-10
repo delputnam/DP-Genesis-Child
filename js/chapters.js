@@ -10,12 +10,22 @@ function pageLoaded() {
 
 }
 
+function windowHistorySupported() {
+    // If pushState is supported, return true, else return false.
+    return !!(window.history && window.history.pushState);
+}
+
 $(document).ready(function(){
 
 	$('body').removeClass( 'no-js' );
 
 	$('.chapters-subpage-link').click(function( event ){
 
+		if ( !windowHistorySupported() ) {
+			return;
+		}
+
+		var pageID = $(this).data('chapters-page-name');
 		var pageName = 'chapters-sub-page-' + $(this).data('chapters-page-name');
 		var pageurl = $(this).attr('href');
 		var pageLoaded = false;
@@ -25,24 +35,21 @@ $(document).ready(function(){
 		$('.chapters-expanded').removeClass('chapters-expanded');
 		$('#chapters-navbar .active').removeClass('active');
 
+		$('#chapters-navbar .chapters-subpage-link[data-chapters-page-name='+pageID+']').parent('li').addClass('active');
+		if (pageurl != window.location) {
+			window.history.pushState({path:pageurl}, '', pageurl);
+		}
+
 		if ( $('#' + pageName).length ) {
 
 			$('#' + pageName).addClass('chapters-expanded');
-			$(this).parent('li').addClass('active');
-			if (pageurl != window.location) {
-				window.history.pushState({path:pageurl}, '', pageurl);
-			}
 
 		} else {
 			$.ajax({url:pageurl+'?content-only', success: function(data){
-				$('.entry-content').append(data);
+				$('.chapters-sub-page').first().parent().append(data);
 				setTimeout(function(){
 					$('#' + pageName).addClass('chapters-expanded');
 				},10);
-				$(this).parent('li').addClass('active');
-				if (pageurl != window.location) {
-					window.history.pushState({path:pageurl}, '', pageurl);
-				}
 			}});
 		}
 

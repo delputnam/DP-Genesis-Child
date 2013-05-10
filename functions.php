@@ -422,14 +422,8 @@ function include_chapter_page_template( $template ) {
 
 	if ( get_post_type() == 'chapter_page' ) {
 		if ( is_single() ) {
-			if ( isset( $_REQUEST['content-only'] ) ) {
-				$template = CHILD_DIR . '/page-templates/content-only-chapter_page.php';
-			} else {
-				$template = CHILD_DIR . '/page-templates/single-chapter_page.php';
-			}
+			$template = CHILD_DIR . '/page-templates/single-chapter_page.php';
 		}
-	} elseif ( isset( $_REQUEST['content-only'] ) ) {
-		$template = CHILD_DIR . '/page-templates/content-only-chapter_page.php';
 	}
 
 	return $template;

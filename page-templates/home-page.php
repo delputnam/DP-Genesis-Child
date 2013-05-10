@@ -13,18 +13,13 @@ function body_class_stripes($classes) {
 }
 
 remove_action('genesis_header', 'genesis_do_header');
-//add_action('genesis_header', 'chapters_do_header');
-function chapters_do_header() { ?>
-	<img class="home-header-image" src="<?php echo CHILD_URL; ?>/images/flat-chapters-logo-wm-tagline.png" />
-<?php }
-
 remove_action( 'genesis_post_title', 'genesis_do_post_title' );
+remove_action( 'genesis_post_content', 'genesis_do_post_content' );
 
+add_action( 'genesis_post_content', 'chapters_do_home_content', 1, 0 );
+function chapters_do_home_content( $show = true ) { ?>
 
-add_action( 'genesis_post_content', 'chapters_do_home_content', 1 );
-function chapters_do_home_content() { ?>
-
-<div class="chapters-sub-page chapters-expanded" id="chapters-sub-page-home">
+<div class="chapters-sub-page<?php echo ($show) ? ' chapters-expanded' : ''; ?>" id="chapters-sub-page-home">
 	<div class="container">
 
 		<div class="chapters-header">
@@ -41,33 +36,33 @@ function chapters_do_home_content() { ?>
 		<div class="row home-nav-blocks">
 			<div class="outer-wrap span4">
 				<div class="home-nav-block chapters-map">
-					<div class="inner-wrap">
-						<a class="chapters-subpage-link" data-chapters-page-name="map" href="/map">
+					<a class="chapters-subpage-link" data-chapters-page-name="map" href="map">
+						<div class="inner-wrap">
 							<img class="home-nav-icon" src="<?php echo CHILD_URL; ?>/images/icon-flat-map.png" >
-						</a>
-					</div>
+						</div>
+					</a>
 					<h3 class="home-nav-title">Locate Chapters</h3>
 					<p>Aenean eu leo quam. <a href="#">Pellentesque ornare sem</a> lacinia quam venenatis vestibulum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
 				</div>
 			</div>
 			<div class="outer-wrap span4">
 				<div class="home-nav-block chapters-events">
-					<div class="inner-wrap">
-						<a class="chapters-subpage-link" data-chapters-page-name="events" href="/events">
+					<a class="chapters-subpage-link" data-chapters-page-name="events" href="events">
+						<div class="inner-wrap">
 							<img class="home-nav-icon" src="<?php echo CHILD_URL; ?>/images/icon-flat-calendar.png" >
-						</a>
-					</div>
+						</div>
+					</a>
 					<h3 class="home-nav-title">Chapter Events</h3>
 					<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec sed odio dui. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
 				</div>
 			</div>
 			<div class="outer-wrap span4">
 				<div class="home-nav-block chapters-notes">
-					<div class="inner-wrap">
-						<a class="chapters-subpage-link" data-chapters-page-name="notes" href="/notes">
+					<a class="chapters-subpage-link" data-chapters-page-name="notes" href="notes">
+						<div class="inner-wrap">
 							<img class="home-nav-icon" src="<?php echo CHILD_URL; ?>/images/icon-flat-book.png" >
-						</a>
-					</div>
+						</div>
+					</a>
 					<h3 class="home-nav-title">Notes<br>from Kelly</h3>
 					<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas faucibus mollis interdum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. <a href="#">Nullam quis</a> risus eget urna mollis ornare vel eu leo. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
 				</div>
@@ -111,5 +106,14 @@ function chapters_footer() { ?>
 <?php }
 
 
-
-genesis();
+if ( isset($_REQUEST['content-only'] ) ) {
+	global $loop_counter;
+	$loop_counter = 0;
+	if ( have_posts() ) : while ( have_posts() ) : the_post();
+		chapters_do_home_content( false );
+		$loop_counter++;
+	endwhile; /** end of one post **/
+	endif; /** end loop **/
+} else {
+	genesis();
+}

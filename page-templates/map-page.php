@@ -17,10 +17,10 @@ remove_action('genesis_header', 'genesis_do_header');
 remove_action( 'genesis_post_title', 'genesis_do_post_title' );
 
 remove_action( 'genesis_post_content', 'genesis_do_post_content' );
-add_action( 'genesis_post_content', 'chapters_do_home_content', 1 );
-function chapters_do_home_content() { ?>
+add_action( 'genesis_post_content', 'chapters_do_map_content', 1, 0 );
+function chapters_do_map_content( $show = true ) { ?>
 
-<div class="chapters-sub-page chapters-expanded" id="chapters-sub-page-nav">
+<div class="chapters-sub-page<?php echo ($show) ? ' chapters-expanded' : ''; ?>" id="chapters-sub-page-map">
 	<div class="container">
 
 		<div class="chapters-header-small">
@@ -39,4 +39,14 @@ function chapters_do_home_content() { ?>
 <?php }
 
 
-genesis();
+if ( isset($_REQUEST['content-only'] ) ) {
+	global $loop_counter;
+	$loop_counter = 0;
+	if ( have_posts() ) : while ( have_posts() ) : the_post();
+		chapters_do_map_content( false );
+		$loop_counter++;
+	endwhile; /** end of one post **/
+	endif; /** end loop **/
+} else {
+	genesis();
+}
